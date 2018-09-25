@@ -24,9 +24,11 @@ class Array:
 	def __init__(self,data):
 		# Allow a user to pass only an array or a list to the constructor
 		if isinstance(data, array):
+			# TODO - check for cases where typecode is not 'b', 'q' or 'd'
 			self.data = data
 		elif isinstance(data, list):
 			if len(data) == 0:
+				# hack - forcing array to be float
 				first_item = 0.0
 			else:
 				first_item = data[0]
@@ -35,7 +37,7 @@ class Array:
 				dtype = 'b'
 			elif isinstance(first_item, int):
 				dtype = 'q'
-			elif isinstance(first_item, int):
+			elif isinstance(first_item, float):
 				dtype = 'd'
 			else:
 				raise TypeError('List must only contain bool, ints or floats')

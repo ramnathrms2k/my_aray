@@ -1,4 +1,6 @@
+from array import array
 from .. import Array
+
 
 def test_boolean_list():
     a_list = [False, True, True]
@@ -20,3 +22,14 @@ def test_float_list():
     assert arr.dtype == 'd'
     assert arr1.dtype == 'd'
     assert arr2.dtype == 'd'
+
+def test_empty_array_list():
+    a_list = []
+    arr = Array(a_list)
+    arr1 = array('b',[])
+    arr11 = Array(arr1)
+    arr2 = array('q',[])
+    arr21 = Array(arr2)
+    assert arr.dtype == 'd'
+    assert arr11.dtype == 'b'
+    assert arr21.dtype == 'q'

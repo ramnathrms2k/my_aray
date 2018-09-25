@@ -22,7 +22,7 @@ class Array:
 	'''
 
 	def __init__(self,data):
-		# allow a user to pass only an array or a list to the constructor
+		# Allow a user to pass only an array or a list to the constructor
 		if isinstance(data, array):
 			self.data = data
 		elif isinstance(data, list):
@@ -37,7 +37,7 @@ class Array:
 				raise TypeError('List must only contain bool, ints or floats')
 			
 			try:
-				self.data - array(dtype, data)
+				self.data = array(dtype, data)
 			except TypeError:
 				self.data = array('d',data)
 		else:

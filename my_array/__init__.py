@@ -101,4 +101,10 @@ class Array:
 	    		return sum(sorted(self.data)[n//2-1:n//2+1])/2.0
 
 	def __repr__(self):
-		return 'This is an array'
+		final_str = ''
+		for val in self.data:
+			final_str += f'{val:5}\n'
+		return final_str
+
+	def __len__(self):
+		return len(self.data)

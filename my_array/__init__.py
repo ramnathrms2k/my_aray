@@ -32,7 +32,7 @@ class Array:
 			elif isinstance(first_item, int):
 				dtype = 'q'
 			elif isinstance(first_item, int):
-				dtyoe = 'd'
+				dtype = 'd'
 			else:
 				raise TypeError('List must only contain bool, ints or floats')
 			

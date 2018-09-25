@@ -108,3 +108,10 @@ class Array:
 
 	def __len__(self):
 		return len(self.data)
+
+	def sort(self, reverse=False):
+		data = sorted(self.data, reverse=reverse)
+		return Array(data)
+
+	def __iter__(self):
+		return iter(self.data)

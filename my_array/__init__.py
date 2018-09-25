@@ -22,10 +22,16 @@ class Array:
 	'''
 
 	def __init__(self,data):
+		# allow a user to pass only an array or a list to the constructor
+		if isinstance(data, array):
+			self.data = data
+		elif isinstance(data,list):
+			self.data - array('d',data)
+		else:
+			raise TypeError('Array constructor only accepts lists or arrays')
 		# b - boolean (1 byte integer)
 		# q - integer (4 bytes)
 		# d - float (8 bytes)
-		self.data = array('d',data)
 		
 	def sum(self):
 		'''

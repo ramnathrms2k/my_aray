@@ -26,7 +26,11 @@ class Array:
 		if isinstance(data, array):
 			self.data = data
 		elif isinstance(data, list):
-			first_item = data[0]
+			if len(data) == 0:
+				first_item = 0.0
+			else:
+				first_item = data[0]
+			
 			if isinstance(first_item, bool):
 				dtype = 'b'
 			elif isinstance(first_item, int):

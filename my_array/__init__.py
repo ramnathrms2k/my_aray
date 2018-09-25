@@ -25,8 +25,21 @@ class Array:
 		# allow a user to pass only an array or a list to the constructor
 		if isinstance(data, array):
 			self.data = data
-		elif isinstance(data,list):
-			self.data - array('d',data)
+		elif isinstance(data, list):
+			first_item = data[0]
+			if isinstance(first_item, bool):
+				dtype = 'b'
+			elif isinstance(first_item, int):
+				dtype = 'q'
+			elif isinstance(first_item, int):
+				dtyoe = 'd'
+			else:
+				raise TypeError('List must only contain bool, ints or floats')
+			
+			try:
+				self.data - array(dtype, data)
+			except TypeError:
+				self.data = array('d',data)
 		else:
 			raise TypeError('Array constructor only accepts lists or arrays')
 		# b - boolean (1 byte integer)

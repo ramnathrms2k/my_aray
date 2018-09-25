@@ -45,6 +45,7 @@ class Array:
 		# b - boolean (1 byte integer)
 		# q - integer (4 bytes)
 		# d - float (8 bytes)
+		self.dtype = self.data.typecode
 		
 	def sum(self):
 		'''

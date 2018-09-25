@@ -23,19 +23,55 @@ class Array:
 		self.data = data
 		
 	def sum(self):
+		'''
+		Sums all the values in the array
+		
+		Returns
+		-------
+		int or float
+		'''
 		return sum(self.data)
 		
 	def min(self):
+		'''
+		Minimum value from the array
+				
+		Returns
+		-------
+		int or float
+		'''
 		return min(self.data)
 		
 	def max(self):
+		'''
+		Maximum value from the array
+				
+		Returns
+		-------
+		int or float
+		'''
 		return max(self.data)
 
 	def mean(self):
+		'''
+		Mean value of the array
+				
+		Returns
+		-------
+		int or float
+		'''
 		n = len(self.data)
 		return sum(self.data)/n
 		
 	def median(self):
+		'''
+		Median value of the array
+				
+		Returns
+		-------
+		int or float
+		'''
+
 		n = len(self.data)
 		if n < 1:
 			return None

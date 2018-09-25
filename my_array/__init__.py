@@ -1,5 +1,10 @@
 # init
 
+ram_constant = 999
+
+def square(x):
+	return (x ** 2)
+
 class Array:
 
 	def __init__(self,data):

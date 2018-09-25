@@ -1,7 +1,5 @@
 # init
 
-import statistics
-
 ram_constant = 999
 
 def square(x):
@@ -20,9 +18,16 @@ class Array:
 		
 	def max(self):
 		return max(self.data)
-		
+
 	def mean(self):
-		return statistics.mean(self.data)
+		n = len(self.data)
+		return sum(self.data)/n
 		
 	def median(self):
-		return statistics.median(self.data)
+		n = len(self.data)
+		if n < 1:
+			return None
+		elif n % 2 == 1:
+			return sorted(self.data)[n//2]
+		else:
+	    		return sum(sorted(self.data)[n//2-1:n//2+1])/2.0

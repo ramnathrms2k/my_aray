@@ -1,3 +1,5 @@
+from array import array
+
 # init
 
 ram_constant = 999
@@ -7,7 +9,7 @@ def square(x):
 
 class Array:
 
-	,,,
+	'''
 	This is a single dimensional numeric array for scientific computing.
 	
 	This array will compute lots of basic statistics.
@@ -17,10 +19,13 @@ class Array:
 	
 	data: list
 		List of numbers
-	,,,
+	'''
 
 	def __init__(self,data):
-		self.data = data
+		# b - boolean (1 byte integer)
+		# q - integer (4 bytes)
+		# d - float (8 bytes)
+		self.data = array('d',data)
 		
 	def sum(self):
 		'''

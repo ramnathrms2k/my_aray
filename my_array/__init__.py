@@ -80,7 +80,7 @@ class Array:
 		-------
 		int or float
 		'''
-		n = len(self.data)
+		n = len(self)
 		return sum(self.data)/n
 		
 	def median(self):

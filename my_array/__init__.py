@@ -1,4 +1,5 @@
 from array import array
+from . import _utils
 
 # init
 
@@ -27,20 +28,7 @@ class Array:
 			# TODO - check for cases where typecode is not 'b', 'q' or 'd'
 			self.data = data
 		elif isinstance(data, list):
-			if len(data) == 0:
-				# hack - forcing array to be float
-				first_item = 0.0
-			else:
-				first_item = data[0]
-			
-			if isinstance(first_item, bool):
-				dtype = 'b'
-			elif isinstance(first_item, int):
-				dtype = 'q'
-			elif isinstance(first_item, float):
-				dtype = 'd'
-			else:
-				raise TypeError('List must only contain bool, ints or floats')
+			dtype = _utils.get_dtype_of_list(data)
 			
 			try:
 				self.data = array(dtype, data)
@@ -52,7 +40,8 @@ class Array:
 		# q - integer (4 bytes)
 		# d - float (8 bytes)
 		self.dtype = self.data.typecode
-		
+
+
 	def sum(self):
 		'''
 		Sums all the values in the array
@@ -110,3 +99,6 @@ class Array:
 			return sorted(self.data)[n//2]
 		else:
 	    		return sum(sorted(self.data)[n//2-1:n//2+1])/2.0
+
+	def __repr__(self):
+		return 'This is an array'

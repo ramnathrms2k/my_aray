@@ -1,4 +1,5 @@
 from array import array
+import pytest
 from .. import Array
 
 
@@ -33,3 +34,9 @@ def test_empty_array_list():
     assert arr.dtype == 'd'
     assert arr11.dtype == 'b'
     assert arr21.dtype == 'q'
+
+def test_error_in_array_types():
+    with pytest.raises(TypeError):
+        Array([1, 2, 'asdf'])
+        #Array(['asdf'])
+        #Array([1, 2, 3])

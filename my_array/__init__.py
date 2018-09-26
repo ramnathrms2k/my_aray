@@ -125,3 +125,13 @@ class Array:
 
 	def __iter__(self):
 		return iter(self.data)
+
+	def __getitem__(self, key):
+		if isinstance(key, int):
+			return self.data[key]
+		elif isinstance(key, slice):
+			return Array(self.data[key])
+		elif isinstance(key, list):
+			raise NotImplementedError('Not done yet. Will do soon!!')
+		else:
+			raise TypeError('Key must be an int, slice or a list')

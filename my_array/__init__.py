@@ -218,3 +218,6 @@ class Array:
 		c = Counter(self.data)
 		mode = c.most_common(1)
 		return mode
+
+	#TODO - what happens during tie
+	#TODO - provide options to user to control output

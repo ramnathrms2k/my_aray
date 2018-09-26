@@ -143,10 +143,23 @@ class Array:
 
 		#TODO can you set items with a slice or list
 
+	#def __add__(self, value):
+		#return an arry that has 'value' added to each element
+	#	data = [val + value for val in self]
+	#	return Array(data)
+
 	def __add__(self, value):
 		#return an arry that has 'value' added to each element
-		data = [val + value for val in self]
-		return Array(data)
+		if isinstance(value, (bool, int, float)):
+			data = [val + value for val in self]
+			return Array(data)
+		elif isinstance(value, Array):
+			if len(self) != len(value):
+				raise ValueError(f'Arrays must be of same length {len(self)} != {len(value)}')
+			data = [val1 + val2 for val1, val2 in zip(self, value)]
+			return Array(data)
+		else:
+			raise TypeError('Addition can occur only with bool, int, float or of arrays containing bool, int or float')
 
 	#TODO implement other opertators - subtration, multiplication, division, floor division, exponentiation and modulus - -, *, /, //, **, %
 
@@ -181,3 +194,16 @@ class Array:
 		return Array(data)
 
 	#TODO - implement the right side operators like radd, etc.,.
+
+	def __gt__(self, value):
+		#return an boolean arry that compares if a value is greater than
+		if isinstance(value, (bool, int, float)):
+			data = [val > value for val in self]
+			return Array(data)
+		elif isinstance(value, Array):
+			if len(self) != len(value):
+				raise ValueError(f'Arrays must be of same length {len(self)} != {len(value)}')
+			data = [val1 > val2 for val1, val2 in zip(self, value)]
+			return Array(data)
+		else:
+			raise TypeError('Comparison can occur only with bool, int, float or of arrays containing bool, int or float')

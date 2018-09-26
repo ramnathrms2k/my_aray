@@ -179,3 +179,5 @@ class Array:
 		#return an arry that has 'value' modulus operated to each element
 		data = [val % value for val in self]
 		return Array(data)
+
+	#TODO - implement the right side operators like radd, etc.,.

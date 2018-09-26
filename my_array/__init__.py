@@ -1,6 +1,7 @@
 from array import array
 from . import _utils
 from collections import Counter
+import random
 
 # init
 
@@ -221,3 +222,15 @@ class Array:
 
 	#TODO - what happens during tie
 	#TODO - provide options to user to control output
+
+	#MAKE ALTERNATE CONSTRUCTOR
+	# arr = Array([1, 5, 6])
+	# arr1 = Array.create_random(low, high, number)
+	# This would produce a random array of numbers between low and high
+	# This is a clas method
+	
+	@classmethod
+	def create_random(cls, low, high, n):
+		data = [random.randint(low, high) for in in range(n)]
+		return cls(data)
+		# Array(data)

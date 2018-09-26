@@ -207,3 +207,5 @@ class Array:
 			return Array(data)
 		else:
 			raise TypeError('Comparison can occur only with bool, int, float or of arrays containing bool, int or float')
+
+	#TODO - implement other comparison operators

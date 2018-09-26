@@ -252,10 +252,28 @@ class Array:
 		for s in sentance.split():
 				if s[-1] == '.':
 					s += '0'
-				print(s)
 				cleanString = re.sub('[^0-9.]','', s )
 				if _utils.isfloat(cleanString):
 					data.append(float(cleanString))
 				elif cleanString.isnumeric():
 					data.append(int(cleanString))
 		return cls(data)
+		
+	
+	@classmethod
+	def create_from_stock(cls, symbol, date_range='5y'):
+		BASE_URL = 'https://api.iextrading.com/1.0/'
+		end_point = f'/stock/{symbol}/chart/{date_range}'
+		url = BASE_URL + end_point
+		
+		req = requests.get(url)
+		data_json = req.json()
+		data = [val['close'] for val in data_json]
+		return cls(data)
+
+	# Write method to write all data to a file of users choice
+
+	def write(self, file_name):
+		with open(file_name, 'w') as f:
+			for val in self:
+				f.write(f'{val}\n')

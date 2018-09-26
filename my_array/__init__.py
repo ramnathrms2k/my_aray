@@ -237,5 +237,7 @@ class Array:
 
 	@classmethod
 	def create_from_dict(cls, d):
+		if not isinstance(d,dict):
+			raise TypeError('d must be a dictionary')
 		data = list(d.keys())
 		return cls(data)

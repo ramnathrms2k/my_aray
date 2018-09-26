@@ -8,6 +8,8 @@ ram_constant = 999
 def square(x):
 	return (x ** 2)
 
+options_max_value = 20
+
 class Array:
 
 	'''
@@ -102,8 +104,16 @@ class Array:
 
 	def __repr__(self):
 		final_str = ''
-		for val in self.data:
-			final_str += f'{val:5}\n'
+		half_max = options_max_value // 2
+		if len(self) <= options_max_value:
+			for val in self.data:
+				final_str += f'{val:5}\n'
+		else:
+			for val in self.data[:half_max]:
+				final_str += f'{val:5}\n'
+			final_str += f'...\n'
+			for val in self.data[-half_max:]:
+				final_str += f'{val:5}\n'
 		return final_str
 
 	def __len__(self):

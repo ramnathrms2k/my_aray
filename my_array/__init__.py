@@ -217,5 +217,5 @@ class Array:
 
 	def mode(self):
 		c = Counter(self.data)
-		mode = c.most_common()
+		mode = c.most_common(1)
 		return mode

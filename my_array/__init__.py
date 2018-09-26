@@ -157,7 +157,7 @@ class Array:
 
 	def __mul__(self, value):
 		#return an arry that has 'value' multipled to each element
-		data = [val - value for val in self]
+		data = [val * value for val in self]
 		return Array(data)
 
 	def __truediv__(self, value):

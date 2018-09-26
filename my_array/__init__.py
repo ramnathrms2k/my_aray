@@ -135,3 +135,15 @@ class Array:
 			raise NotImplementedError('Not done yet. Will do soon!!')
 		else:
 			raise TypeError('Key must be an int, slice or a list')
+
+	def __setitem__(self, key, value):
+		if isinstance(key, int):
+			#TODO change data type of array if given float va;ue
+			self.data[key] = value
+
+		#TODO can you set items with a slice or list
+
+	def __add__(self, value):
+		#return an arry that has 'value' added to each element
+		data = [val + value for val in self]
+		return Array(data)

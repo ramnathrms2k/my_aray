@@ -103,6 +103,7 @@ class Array:
 	    		return sum(sorted(self.data)[n//2-1:n//2+1])/2.0
 
 	def __repr__(self):
+		#TODO - if dtype of array is 'b', then output True or False insteaf of 0 or 1
 		final_str = ''
 		half_max = options_max_value // 2
 		if len(self) <= options_max_value:

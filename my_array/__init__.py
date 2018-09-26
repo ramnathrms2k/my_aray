@@ -234,3 +234,8 @@ class Array:
 		data = [random.randint(low, high) for i in range(n)]
 		return cls(data)
 		# Array(data)
+
+	@classmethod
+	def create_from_dict(cls, d):
+		data = list(d.keys())
+		return cls(data)

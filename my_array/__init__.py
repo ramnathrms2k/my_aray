@@ -4,6 +4,8 @@ from collections import Counter
 import random
 import re
 import string
+from functools import reduce
+from operator import add
 
 # init
 
@@ -277,3 +279,27 @@ class Array:
 		with open(file_name, 'w') as f:
 			for val in self:
 				f.write(f'{val}\n')
+
+
+def read_file(file_name):
+	#TODO - Convert to integer?
+	data = [float(line.trip('\n')) for line in open(file_name)]
+	return Array(data)
+
+def concat(arrays):
+	# input is list or tuple of arrays
+	# output is a single concatenated array
+	py_arrays = [arr.data for arr in arrays]
+	data = reduce(add, py_arrays)
+	return Array(data)
+
+def concat2(arrays):
+	py_arrays = [arr.data for arr in arrays]
+	return Array(sum(py_arrays[1:], py_arrays[0]))
+
+def concat3(arrays):
+	# don't use; mutates underlying data
+	arr_final = arrays[0].data
+	for arr in arrays:
+		arr_final += arr.data
+	return Array(arr_final)

@@ -1,3 +1,4 @@
+import string
 
 def get_dtype_of_list(data):
 	if len(data) == 0:
@@ -15,3 +16,10 @@ def get_dtype_of_list(data):
 	else:
 		raise TypeError('List must only contain bool, ints or floats')
 	return dtype
+
+def isfloat(str):
+	try:
+		if (bool(float(str))):
+			return True
+	except ValueError:
+		return False

@@ -2,6 +2,8 @@ from array import array
 from . import _utils
 from collections import Counter
 import random
+import re
+import string
 
 # init
 
@@ -237,7 +239,23 @@ class Array:
 
 	@classmethod
 	def create_from_dict(cls, d):
-		if not isinstance(d,dict):
+		if not isinstance(d, dict):
 			raise TypeError('d must be a dictionary')
 		data = list(d.keys())
+		return cls(data)
+
+	@classmethod
+	def create_from_string(cls, sentance):
+		data = []
+		if not isinstance(sentance, str):
+			raise TypeError('str must be a string')
+		for s in sentance.split():
+				if s[-1] == '.':
+					s += '0'
+				print(s)
+				cleanString = re.sub('[^0-9.]','', s )
+				if _utils.isfloat(cleanString):
+					data.append(float(cleanString))
+				elif cleanString.isnumeric():
+					data.append(int(cleanString))
 		return cls(data)

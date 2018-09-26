@@ -147,3 +147,35 @@ class Array:
 		#return an arry that has 'value' added to each element
 		data = [val + value for val in self]
 		return Array(data)
+
+	#TODO implement other opertators - subtration, multiplication, division, floor division, exponentiation and modulus - -, *, /, //, **, %
+
+	def __sub__(self, value):
+		#return an arry that has 'value' subtracted to each element
+		data = [val - value for val in self]
+		return Array(data)
+
+	def __mul__(self, value):
+		#return an arry that has 'value' multipled to each element
+		data = [val - value for val in self]
+		return Array(data)
+
+	def __trudiv__(self, value):
+		#return an arry that has 'value' divided to each element
+		data = [val / value for val in self]
+		return Array(data)
+
+	def __floordiv__(self, value):
+		#return an arry that has 'value' floor divided to each element
+		data = [val // value for val in self]
+		return Array(data)
+
+	def __pow__(self, value):
+		#return an arry that has 'value' exponentiated to each element
+		data = [val ** value for val in self]
+		return Array(data)
+
+	def __mod__(self, value):
+		#return an arry that has 'value' modulus operated to each element
+		data = [val % value for val in self]
+		return Array(data)

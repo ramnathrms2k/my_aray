@@ -160,7 +160,7 @@ class Array:
 		data = [val - value for val in self]
 		return Array(data)
 
-	def __trudiv__(self, value):
+	def __truediv__(self, value):
 		#return an arry that has 'value' divided to each element
 		data = [val / value for val in self]
 		return Array(data)

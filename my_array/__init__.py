@@ -1,5 +1,6 @@
 from array import array
 from . import _utils
+import collections
 
 # init
 
@@ -210,3 +211,10 @@ class Array:
 			raise TypeError('Comparison can occur only with bool, int, float or of arrays containing bool, int or float')
 
 	#TODO - implement other comparison operators
+
+	# Use collections module to find mode
+
+	def mode(self):
+		c = Counter(self.data)
+		mode = c.most_common()
+		return mode

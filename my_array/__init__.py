@@ -1,6 +1,5 @@
 from array import array
 from . import _utils
-import collections
 from collections import Counter
 
 # init

@@ -231,6 +231,6 @@ class Array:
 	
 	@classmethod
 	def create_random(cls, low, high, n):
-		data = [random.randint(low, high) for in in range(n)]
+		data = [random.randint(low, high) for i in range(n)]
 		return cls(data)
 		# Array(data)
